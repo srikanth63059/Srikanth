@@ -1,23 +1,51 @@
-public class Demo21 {
-    public static void main(String[] args) {
-        // Loop through numbers 1 to 100
-        for (int i = 1; i <= 100; i++) {
-            // Check if divisible by both 3 and 5
-            if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("Demo21");
-            }
-            // Check if divisible by 3
-            else if (i % 3 == 0) {
-                System.out.println("Fizz");
-            }
-            // Check if divisible by 5
-            else if (i % 5 == 0) {
-                System.out.println("Buzz");
-            }
-            // Otherwise, print the number
-            else {
-                System.out.println(i);
-            }
+package Core_Java;
+
+import java.util.*;
+
+class TaxOnIncome{
+    double calculateTax(double taxableIncome) {
+        double tax = 0.0;
+
+        if (taxableIncome <= 500000) {
+            tax = taxableIncome * 0.10;
+        } else if (taxableIncome <= 1000000) {
+            tax = (500000 * 0.10) + ((taxableIncome - 500000) * 0.20);
+        } else {
+            tax = (500000 * 0.10) + (500000 * 0.20) + ((taxableIncome - 1000000) * 0.30);
         }
+
+        return tax;
+    }
+}
+class Demo021{
+    public static void main(String[] args) {
+        
+    
+    TaxOnIncome obj = new TaxOnIncome();
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("Enter monthly gross salary: ");
+    double monthlySalary = sc.nextDouble();
+
+    System.out.print("Enter monthly HRA: ");
+    double hra = sc.nextDouble();
+
+    System.out.print("Enter monthly PF: ");
+    double pf = sc.nextDouble();
+
+    double annualSalary = monthlySalary * 12; 
+
+        double annualHRA = hra * 12; 
+        double annualPF = pf * 12;
+        double deductions = annualHRA + annualPF;
+
+        double taxableIncome = annualSalary - deductions; 
+
+        double tax = obj.calculateTax(taxableIncome);
+
+        System.out.println("Annual Gross Salary: " + annualSalary);
+        System.out.println("Annual Deductions (HRA + PF): " + deductions);
+        System.out.println("Taxable Income: " + taxableIncome);
+        System.out.println("Annual Income Tax: " + tax);
     }
 }
