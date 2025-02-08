@@ -1,11 +1,22 @@
- import java.util.Scanner;
-    public class Demo25{
-    public static void main(String[] args){
-      Scanner sc = new Scanner(System.in);
-      System.out.println("enter a statement: ");
-      String statement = sc.nextLine();
-      String rs = new StringBuilder(statement).reverse().toString();
-      System.out.println("reversed statement:"+rs);
-       
+package Core_Java;
+
+import java.util.*;
+
+class reverseString {
+    void revStr(String str){
+        char[] ch = str.toCharArray();
+        for(int i=ch.length-1;i>=0;i--){
+            System.out.print(ch[i]);
+        }
+    }
+}
+
+class Demo025 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the string: ");
+        String str = sc.next();
+        reverseString obj = new reverseString();
+        obj.revStr(str);
     }
 }
