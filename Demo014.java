@@ -1,21 +1,20 @@
-class UnaryDemo {
-	void UnaryOp() {
-		int a = 10, b = 5;
-		System.out.println(a++);
-		System.out.println(++a);
-		System.out.println(b--);
-		System.out.println(--b);
-		
-		a = 5; 
-		b = 5;
-		int c = a++ * --b * a;
-		System.out.println(c);
-	}
+package Core_Java;
 
-}
-public class Demo14 {
+import java.util.*;
+
+class Demo014{
+    void unary(int a){
+        System.out.println(++a);
+        System.out.println(a++);
+        System.out.println(--a);
+        System.out.println(a--);
+    }
     public static void main(String[] args) {
-        UnaryDemo obj = new UnaryDemo();
-        obj.UnaryOp();
-	}
+        Scanner sc = new Scanner(System.in);
+        Demo014 obj = new Demo014();
+
+        System.out.print("Enter a number: ");
+        int a = sc.nextInt();
+        obj.unary(a);
+    }
 }
